@@ -1,0 +1,202 @@
+CREATE DATABASE bootcamp;
+USE  bootcamp;
+CREATE TABLE roles
+(
+role VARCHAR(45) NOT NULL,
+CONSTRAINT pk PRIMARY KEY(role)
+);
+CREATE TABLE users
+(
+id INTEGER NOT NULL AUTO_INCREMENT,
+name VARCHAR(45) NOT NULL,
+password VARCHAR(45) NOT NULL,
+role VARCHAR(45),
+CONSTRAINT pk PRIMARY KEY(id),
+CONSTRAINT fk_role FOREIGN KEY(role) REFERENCES roles(role)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+CREATE TABLE courses
+(
+id INTEGER NOT NULL AUTO_INCREMENT,
+name VARCHAR(45) NOT NULL,
+CONSTRAINT pk PRIMARY KEY(id)
+);
+CREATE TABLE assignments
+(
+id INTEGER NOT NULL AUTO_INCREMENT,
+name VARCHAR(45) NOT NULL,
+submission DATE,
+CONSTRAINT pk PRIMARY KEY(id)
+);
+CREATE TABLE AssignmentsPerCourse
+(
+crid INTEGER NOT NULL,
+assid INTEGER NOT NULL,
+CONSTRAINT pk PRIMARY KEY(crid,assid),
+CONSTRAINT fk_crid2 FOREIGN KEY(crid) REFERENCES courses(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT fk_assid2 FOREIGN KEY(assid) REFERENCES assignments(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+CREATE TABLE TrainersPerCourse
+(
+trid INTEGER NOT NULL,
+crid INTEGER NOT NULL,
+CONSTRAINT pk PRIMARY KEY(trid,crid),
+CONSTRAINT fk_trid FOREIGN KEY(trid) REFERENCES users(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT fk_crid4 FOREIGN KEY(crid) REFERENCES courses(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+
+CREATE TABLE StudentsPerCourse
+(
+stid INTEGER NOT NULL,
+crid INTEGER NOT NULL,
+CONSTRAINT pk PRIMARY KEY (stid,crid),
+CONSTRAINT fk_crid FOREIGN KEY (crid) REFERENCES courses (id) 
+ON DELETE CASCADE 
+ON UPDATE CASCADE,
+CONSTRAINT fk_stid FOREIGN KEY (stid) REFERENCES users (id)
+ON DELETE CASCADE 
+ON UPDATE CASCADE
+);
+
+CREATE TABLE StudentPerCoursePerAssignment
+(
+stid INTEGER NOT NULL,
+crid INTEGER NOT NULL,
+assid INTEGER NOT NULL,
+sumbit INTEGER,
+mark INTEGER,
+CONSTRAINT pk PRIMARY KEY(stid,crid,assid),
+CONSTRAINT fk_stid1 FOREIGN KEY(stid) REFERENCES users(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT fk_crid1 FOREIGN KEY(crid) REFERENCES courses(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+CONSTRAINT fk_assid1 FOREIGN KEY(assid) REFERENCES assignments(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+
+INSERT INTO roles(role)
+VALUES
+("headmaster"),
+("trainer"),
+("student");
+
+INSERT INTO users(id,name,password,role)
+VALUES
+(101,'gtsianakas','bbf188d1805f10d93a00033a79dbb580','student'),
+(102,'gdimitriou','907fc9f60074106601f07ebd1968533d','student'),
+(103,'tasosxampsas','f1cf384ef5903d58976c4ed30a0718a8','student'),
+(104,'johnnykoskinas','d00d168bf7e9e5d79163887a4bda0ed4','student'),
+(105,'billpandazis','72974854826227267fc1b55d108f99d2','student'),
+(106,'vaggelistheodorou','08492a353f08f30069301fcdc5b19a76','student'),
+(107,'andreasmeletiou','1c3b1d64054c4f6ae5091beb0ec8730f','student'),
+(108,'dimitristzikas','a732b11f8f47f38decaf8da56f7fd713','student'),
+(109,'nikosgrifakis','6ca239119742bd2727e6027b258935fb','student'),
+(110,'annaandreadh','6fe60ea548c2b1a599c916a4bb952af6','student'),
+(201,'georgeiraklidis','6b14c4eee434bead7c1798ecc2384b02','trainer'),
+(202,'georgepasparakis','cebad5c5a1f80365caa108bc752f1bab','headmaster'),
+(203,'spyrosmavros','6d5932eab1fe625cf63e178c8d9a70bf','trainer'),
+(204,'kostasbotsioulis','0b1bd0f9c17546ad30d103c4573f2210','trainer');
+
+INSERT INTO courses(id,name)
+VALUES
+(901,'Course1'),
+(902,'Course2'),
+(903,'Course3'),
+(904,'Course4'),
+(905,'Course5'),
+(906,'Course6');
+
+INSERT INTO assignments(id,name,submission)
+VALUES
+(301,'Assignment1','2019-02-14 23:59:59'),  
+(302,'Assignment2','2019-03-14 23:59:59'), 
+(303,'Assignment3','2019-04-14 23:59:59'), 
+(304,'Assignment4','2019-05-15 23:59:59')
+;
+
+INSERT INTO studentpercourseperassignment(stid,crid,assid)
+VALUES
+(101,902,301),
+(101,904,302),
+(102,904,301),
+(103,901,301),
+(103,903,303),
+(104,904,301),
+(105,905,304),
+(106,906,304),
+(107,902,304),
+(107,904,302),
+(108,906,303),
+(109,905,301),
+(110,903,303);
+
+INSERT INTO trainerspercourse(trid,crid)
+VALUES
+
+(201,902),
+(202,902),
+(202,904),
+(203,901),
+(203,905),
+(203,906),
+(204,902);
+
+INSERT INTO studentspercourse(stid,crid)
+VALUES
+(101,902),
+(101,904),
+(102,904),
+(103,901),
+(103,903),
+(104,904),
+(105,905),
+(106,906),
+(107,902),
+(107,904),
+(108,906),
+(109,905),
+(110,903);
+
+INSERT INTO assignmentspercourse(crid,assid)
+VALUES
+(902,301),
+(904,302),
+(904,301),
+(901,301),
+(903,303),
+(905,304),
+(906,304),
+(902,304),
+(906,303),
+(905,301);
+
+CREATE TABLE SchedulePerCourse
+(
+courseid INTEGER NOT NULL,
+day VARCHAR(100) NOT NULL,
+CONSTRAINT pk PRIMARY KEY(courseid),
+CONSTRAINT fk_courseid FOREIGN KEY(courseid) REFERENCES courses(id)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+);
+
+INSERT INTO schedulepercourse(courseid,day)
+VALUES
+(901,'day 1-10'),
+(902,'day 10-25'),
+(903,'day 26-40'),
+(904,'day 40-60'),
+(905,'day 60-70'),
+(906,'day 70-90');
