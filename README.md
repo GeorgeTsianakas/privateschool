@@ -1,6 +1,7 @@
 Private School Individual Project Console Application
-for AFDEmp Coding Bootcamp
-## Desciption
+### Description
+Individual Project for AFDEmp Coding Bootcamp
+## Application Requirments Desciption
 1. Design your system to support different user roles, e.g. Student, Trainer, Head Master. The user must be able to login to the system with these different roles
 2. Each role should be able to do specific actions as these are designated by the Head Master
 	a. Student, enroll to any Course under any Trainer and submit any Assignments that are designated to him / her
@@ -10,3 +11,6 @@ for AFDEmp Coding Bootcamp
 ## Technologies used
 * JDBC
 * MySQL
+```
+download and import into project mysql driver JAR file
+```
