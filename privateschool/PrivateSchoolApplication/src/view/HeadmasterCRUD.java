@@ -1,27 +1,40 @@
 package view;
 
 import dao.AssignmentDao;
+
 import static dao.AssignmentDao.viewAllAssignments;
+
 import dao.AssignmentsPerCourseDao;
+
 import static dao.AssignmentsPerCourseDao.viewAllAssignmentsPerCourse;
+
 import dao.CourseDao;
 import dao.RoleDao;
 import dao.SchedulePerCourseDao;
+
 import static dao.SchedulePerCourseDao.deleteSchedule;
 import static dao.SchedulePerCourseDao.insertNewSchedule;
 import static dao.SchedulePerCourseDao.updateSchedule;
 import static dao.SchedulePerCourseDao.viewAllSchedule;
+
 import dao.StudentPerCoursePerAssignmentDao;
 import dao.StudentsPerCourseDao;
+
 import static dao.StudentsPerCourseDao.viewAllStudentsPerCourse;
+
 import dao.TrainersPerCourseDao;
+
 import static dao.TrainersPerCourseDao.viewAllTrainersPerCourse;
+
 import dao.UserDao;
+
 import static dao.UserDao.viewAllUserByRole;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import model.User;
 
 public class HeadmasterCRUD {

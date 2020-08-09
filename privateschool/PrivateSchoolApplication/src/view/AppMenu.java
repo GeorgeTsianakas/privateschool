@@ -7,9 +7,12 @@ import static dao.StudentPerCoursePerAssignmentDao.viewStudentPerCoursePerAssign
 import static dao.TrainersPerCourseDao.viewAllAssigmnetsPerStudentPerCourse2;
 import static dao.TrainersPerCourseDao.viewAllCoursesPerTrainer;
 import static dao.TrainersPerCourseDao.viewAllStudentsPerCoursePerTrainer;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
+
 import model.User;
+
 import static view.HeadmasterCRUD.headmasterCRUDMain;
 import static view.Login.loginUser;
 

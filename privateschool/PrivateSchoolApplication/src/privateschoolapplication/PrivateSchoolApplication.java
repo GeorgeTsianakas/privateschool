@@ -1,6 +1,7 @@
 package privateschoolapplication;
 
 import java.security.NoSuchAlgorithmException;
+
 import view.RunMenu;
 
 public class PrivateSchoolApplication {

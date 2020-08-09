@@ -7,7 +7,9 @@ import static dao.StudentsPerCourseDao.viewStudentsPerCourse;
 import static dao.UserDao.getUserList;
 import static dao.UserDao.restUserIdSelector;
 import static dao.UserDao.viewRestUsers;
+
 import dto.StudentPerCoursePerAssignmentDTO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,10 +20,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import model.Course;
 import model.StudentPerCoursePerAssignment;
 import model.TrainersPerCourse;
 import model.User;
+
 import static utils.DBUtils.closeConnection;
 import static utils.DBUtils.createPreparedStatement;
 import static utils.DBUtils.getconnection;

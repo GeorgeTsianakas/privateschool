@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+
 import static utils.GenericUtils.dateFix;
 
 public class Assignment {

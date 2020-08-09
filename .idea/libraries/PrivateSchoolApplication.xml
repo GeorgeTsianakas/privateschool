@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PrivateSchoolApplication">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/privateschool/PrivateSchoolApplication/dist/PrivateSchoolApplication.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

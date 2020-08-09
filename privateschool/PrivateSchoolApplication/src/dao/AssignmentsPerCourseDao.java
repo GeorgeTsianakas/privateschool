@@ -4,6 +4,7 @@ import static dao.AssignmentDao.assignmentSelectorPerCourse;
 import static dao.AssignmentDao.getAssignmentList;
 import static dao.AssignmentDao.restAssignmentSelectorPerCourse;
 import static dao.CourseDao.courseSelector;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,9 +15,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import model.Assignment;
 import model.AssignmentsPerCourse;
 import model.Course;
+
 import static utils.DBUtils.closeConnection;
 import static utils.DBUtils.createPreparedStatement;
 import static utils.DBUtils.getconnection;

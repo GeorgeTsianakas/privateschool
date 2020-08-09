@@ -2,6 +2,7 @@ package dao;
 
 import static dao.AssignmentsPerCourseDao.getRestAssignemntsIdsSet;
 import static dao.AssignmentsPerCourseDao.viewAssignmentsPerCourse;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,8 +15,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import model.Assignment;
 import model.Course;
+
 import static utils.DBUtils.closeConnection;
 import static utils.DBUtils.createPreparedStatement;
 import static utils.DBUtils.getconnection;

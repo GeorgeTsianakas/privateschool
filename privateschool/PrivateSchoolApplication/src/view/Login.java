@@ -1,8 +1,11 @@
 package view;
 
 import dao.UserDao;
+
 import java.security.NoSuchAlgorithmException;
+
 import model.User;
+
 import static utils.GenericUtils.giveInputFromUser;
 import static utils.Password.generateHash;
 

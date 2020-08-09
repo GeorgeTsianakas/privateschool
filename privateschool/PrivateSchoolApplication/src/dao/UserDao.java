@@ -1,6 +1,7 @@
 package dao;
 
 import static dao.RoleDao.roleSelector;
+
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,13 +13,17 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import model.User;
+
 import static utils.DBUtils.closeConnection;
 import static utils.DBUtils.createPreparedStatement;
 import static utils.DBUtils.getconnection;
 import static utils.DBUtils.queryExecute;
 import static utils.DBUtils.queryExecuteUpdate;
+
 import utils.GenericUtils;
+
 import static utils.GenericUtils.giveInputFromUser;
 import static utils.GenericUtils.giveIntFromUser;
 import static utils.Password.generateHash;
