@@ -9,8 +9,8 @@ Individual Project for AFDEmp Coding Bootcamp
 	c. Head Master, create any courses needed, appoint the trainer(s) and the students under each of the courses, appoint assignments to each of the courses
 3. The login system must implement persistence and security along with password hashing
 ## Technologies used
-* JDBC
-* MySQL
+* JDBC	![](https://img.shields.io/badge/Code-Java-informational?style=flat&logo=java)
+* MySQL	![](https://img.shields.io/badge/Database-MySQL-informational?style=flat&logo=mysql)
 ```
 download and import into project mysql driver JAR file
 ```
